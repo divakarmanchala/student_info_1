@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag 'task.css' %>
+<div class="main-container">
+    <h1 class="main-heading">Students List</h1>
+    <p>click below button to add new students</p>
+        <a class="add-button" href="/students/new">Add</a>
+    <table class="table-container">
+        <tr class="t-header-cotainer">
+            <th class="t-header">Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <% @students.each do |student| %>
+        
+            <tr class="t-sub-container">
+                <td>
+                <%= student.firstname %>
+                </td>
+                <td>
+                <%= student.lastname%>
+                </td>
+                <td>
+                <%= student.age%>
+                </td>
+                <td>
+                <%= link_to "More", student %>
+                </td>
+                <td>
+                
+                <%= link_to "Edit",  edit_student_path(student) %> 
+                </td>
+                <td>
+                <%= button_to "Delete" ,  student, method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+
+
+
