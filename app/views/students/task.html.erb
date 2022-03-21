@@ -3,7 +3,7 @@
 <div class="main-container">
     <h1 class="main-heading">Students List</h1>
     <p>click below button to add new students</p>
-        <a class="add-button" href="/students/new">Add</a>
+        <%= link_to "New user",  new_student_path, class: "add-button" %> 
         <p style="color: green"><%= notice %></p>
     <table class="table-container">
         <tr class="t-header-cotainer">
@@ -27,14 +27,14 @@
                 <%= student.age%>
                 </td>
                 <td>
-                <%= link_to "More Details", student %>
+                <%= link_to "More Details", student , class: "more-details-button"%>
                 </td>
                 <td>
                 
-                <%= link_to "Edit",  edit_student_path(student) %> 
+                <%= link_to "Edit",  edit_student_path(student), class: "edit-button" %> 
                 </td>
                 <td>
-                <%= button_to "Delete" , student, method: :delete %>
+                <%= button_to "Delete" , student, method: :delete, class: "delete-button" %>
                 </td>
             </tr>
         <% end %>
